@@ -2,6 +2,12 @@
 
 package model
 
+type Author struct {
+	ID        string `json:"id"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
+}
+
 type Book struct {
 	ID     string `json:"id"`
 	Title  string `json:"title"`

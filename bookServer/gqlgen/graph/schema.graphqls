@@ -9,8 +9,15 @@ type Book {
   desc: String!
 }
 
+type Author {
+  id: ID!
+  firstName: String!
+  lastName: String!
+}
+
 type Query {
   books: [Book!]!
+  authors: [Author!]
 }
 
 input NewBook {

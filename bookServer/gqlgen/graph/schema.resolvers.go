@@ -18,8 +18,14 @@ func (r *mutationResolver) AddBook(ctx context.Context, input model.NewBook) (*m
 
 // Books is the resolver for the books field.
 func (r *queryResolver) Books(ctx context.Context) ([]*model.Book, error) {
-	r.
-		panic(fmt.Errorf("not implemented: Books - books"))
+	// var book model.Book
+
+	panic(fmt.Errorf("not implemented: Books - books"))
+}
+
+// Authors is the resolver for the authors field.
+func (r *queryResolver) Authors(ctx context.Context) ([]*model.Author, error) {
+	panic(fmt.Errorf("not implemented: Authors - authors"))
 }
 
 // Mutation returns generated.MutationResolver implementation.
