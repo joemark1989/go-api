@@ -1,12 +1,12 @@
-package bookinterface
+package bookInterface
 
 import (
 	"context"
 
-	"github.com/go/crud/bookServer/gqlgen/graph/model"
+	"github.com/go/crud/models"
 )
 
 type IBook interface {
-	Books(ctx context.Context) ([]*model.Book, error)
-	AddBook(ctx context.Context, input model.NewBook) (*model.Book, error)
+	Books(ctx context.Context) ([]*models.Book, error)
+	AddBook(ctx context.Context, input models.NewBook) (*models.Book, error)
 }

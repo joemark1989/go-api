@@ -3,7 +3,7 @@ package db
 import (
 	"log"
 
-	"github.com/go/crud/pkg/models"
+	"github.com/go/crud/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

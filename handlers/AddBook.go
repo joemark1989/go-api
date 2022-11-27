@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/go/crud/pkg/models"
+	"github.com/go/crud/models"
 )
 
 func (h *handler) AddBook(w http.ResponseWriter, r *http.Request) {

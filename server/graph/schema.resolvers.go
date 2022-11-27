@@ -7,24 +7,22 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/go/crud/graph/generated"
-	"github.com/go/crud/graph/model"
+	"github.com/go/crud/models"
+	"github.com/go/crud/server/graph/generated"
 )
 
 // AddBook is the resolver for the addBook field.
-func (r *mutationResolver) AddBook(ctx context.Context, input model.NewBook) (*model.Book, error) {
-	panic(fmt.Errorf("not implemented: AddBook - addBook"))
+func (r *mutationResolver) AddBook(ctx context.Context, input models.NewBook) (*models.Book, error) {
+	return r.Proxy.AddBook(ctx, input)
 }
 
 // Books is the resolver for the books field.
-func (r *queryResolver) Books(ctx context.Context) ([]*model.Book, error) {
-	// var book model.Book
-
-	panic(fmt.Errorf("not implemented: Books - books"))
+func (r *queryResolver) Books(ctx context.Context) ([]*models.Book, error) {
+	return r.Proxy.Books(ctx)
 }
 
 // Authors is the resolver for the authors field.
-func (r *queryResolver) Authors(ctx context.Context) ([]*model.Author, error) {
+func (r *queryResolver) Authors(ctx context.Context) ([]*models.Author, error) {
 	panic(fmt.Errorf("not implemented: Authors - authors"))
 }
 

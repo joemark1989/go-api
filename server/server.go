@@ -7,6 +7,8 @@ import (
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
+	"github.com/go/crud/server/graph"
+	"github.com/go/crud/server/graph/generated"
 )
 
 const defaultPort = "8080"

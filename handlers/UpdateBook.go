@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/go/crud/pkg/models"
+	"github.com/go/crud/models"
 	"github.com/gorilla/mux"
 )
 

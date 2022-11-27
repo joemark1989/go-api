@@ -1,9 +1,9 @@
-package bookinterface
+package bookInterface
 
 import (
 	"context"
 
-	"github.com/go/crud/bookServer/gqlgen/graph/model"
+	"github.com/go/crud/server/graph/model"
 )
 
 type IAuthor interface {

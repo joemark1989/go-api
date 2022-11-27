@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/go/crud/pkg/db"
-	"github.com/go/crud/pkg/handlers"
+	"github.com/go/crud/db"
+	"github.com/go/crud/handlers"
 	"github.com/gorilla/mux"
 )
 

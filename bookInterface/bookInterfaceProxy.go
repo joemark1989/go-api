@@ -1,4 +1,4 @@
-package bookinterface
+package bookInterface
 
 type IProxy interface {
 	IBook
