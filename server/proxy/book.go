@@ -33,16 +33,16 @@ func (p *Proxy) Books(ctx context.Context) ([]*models.Book, error) {
 	return books, nil
 }
 
-func (p *Proxy) AddBook(ctx context.Context, input models.NewBook) (*models.Book, error) {
-	var book *models.Book
+// func (p *Proxy) AddBook(ctx context.Context, input models.NewBook) (*models.Book, error) {
+// 	var book *models.Book
 
-	book.Author = input.Author
-	book.Desc = input.Desc
-	book.Title = input.Title
+// 	book.Author = input.Author
+// 	book.Desc = input.Desc
+// 	book.Title = input.Title
 
-	//append to book table
-	if res := p.DB.Create(&book); res.Error != nil {
-		fmt.Println(res.Error)
-	}
-	return book, nil
-}
+// 	//append to book table
+// 	if res := p.DB.Create(&book); res.Error != nil {
+// 		fmt.Println(res.Error)
+// 	}
+// 	return book, nil
+// }
