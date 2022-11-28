@@ -9,7 +9,7 @@ import (
 )
 
 func (h *handler) GetAllBooks(w http.ResponseWriter, r *http.Request) {
-	var books []models.Book
+	books := []models.Book{}
 
 	if res := h.DB.Find(&books); res.Error != nil {
 		fmt.Println(res.Error)

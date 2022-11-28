@@ -11,12 +11,12 @@ import (
 )
 
 func (h *handler) DeleteBook(w http.ResponseWriter, r *http.Request) {
+	book := models.Book{}
 	//read param
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["id"])
 
 	//find book by id
-	var book models.Book
 	if res := h.DB.First(&book, id); res.Error != nil {
 		fmt.Println(res.Error)
 	}

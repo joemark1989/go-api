@@ -13,8 +13,7 @@ import (
 )
 
 func (p *Proxy) Books(ctx context.Context) ([]*models.Book, error) {
-	var books []*models.Book
-	fmt.Println(books)
+	books := []*models.Book{}
 
 	resp, err := http.Get("http://127.0.0.1:4000/books")
 

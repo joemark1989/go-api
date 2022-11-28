@@ -15,6 +15,8 @@ import (
 func (h *handler) UpdateBook(w http.ResponseWriter, r *http.Request) {
 	// read dynamic id param
 	vars := mux.Vars(r)
+	updatedBook := models.Book{}
+	book := models.Book{}
 
 	id, _ := strconv.Atoi(vars["id"])
 
@@ -26,9 +28,7 @@ func (h *handler) UpdateBook(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln(err)
 	}
 
-	var updatedBook models.Book
 	json.Unmarshal(body, &updatedBook)
-	var book models.Book
 
 	if res := h.DB.First(&book, id); res.Error != nil {
 		fmt.Println(res.Error)
