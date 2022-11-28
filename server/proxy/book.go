@@ -1,10 +1,12 @@
 package proxy
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 
 	"github.com/go/crud/models"
@@ -12,6 +14,7 @@ import (
 
 func (p *Proxy) Books(ctx context.Context) ([]*models.Book, error) {
 	var books []*models.Book
+	fmt.Println(books)
 
 	resp, err := http.Get("http://127.0.0.1:4000/books")
 
@@ -24,7 +27,6 @@ func (p *Proxy) Books(ctx context.Context) ([]*models.Book, error) {
 	body, err := io.ReadAll(resp.Body)
 
 	err = json.Unmarshal(body, &books)
-	fmt.Println(books)
 
 	if err != nil {
 		fmt.Println(err)
@@ -33,16 +35,36 @@ func (p *Proxy) Books(ctx context.Context) ([]*models.Book, error) {
 	return books, nil
 }
 
-// func (p *Proxy) AddBook(ctx context.Context, input models.NewBook) (*models.Book, error) {
-// 	var book *models.Book
+func (p *Proxy) AddBook(ctx context.Context, input models.NewBook) (*models.Book, error) {
+	book := &models.Book{
+		Title:  input.Title,
+		Author: input.Author,
+		Desc:   input.Desc,
+	}
+	fmt.Println(book)
+	data, _ := json.Marshal(book)
 
-// 	book.Author = input.Author
-// 	book.Desc = input.Desc
-// 	book.Title = input.Title
+	req, err := http.NewRequest("POST", "http://127.0.0.1:4000/books", bytes.NewBuffer(data))
 
-// 	//append to book table
-// 	if res := p.DB.Create(&book); res.Error != nil {
-// 		fmt.Println(res.Error)
-// 	}
-// 	return book, nil
-// }
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	//append to book table
+	c := &http.Client{}
+
+	res, err := c.Do(req)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	defer res.Body.Close()
+
+	fmt.Println("response Status:", res.Status)
+	fmt.Println("response Headers:", res.Header)
+	body, _ := ioutil.ReadAll(res.Body)
+	fmt.Println("response Body:", string(body))
+
+	return book, nil
+}
