@@ -23,15 +23,12 @@ func (p *Proxy) Books(ctx context.Context) ([]*models.Book, error) {
 
 	body, err := io.ReadAll(resp.Body)
 
-	fmt.Println(string(body))
-
 	err = json.Unmarshal(body, &books)
+	fmt.Println(books)
 
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	fmt.Println(books)
 
 	return books, nil
 }

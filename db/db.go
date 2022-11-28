@@ -16,6 +16,7 @@ func Init() *gorm.DB {
 	}
 
 	db.AutoMigrate(&models.Book{})
+	// db.Delete(&models.Book{})
 
 	return db
 }
